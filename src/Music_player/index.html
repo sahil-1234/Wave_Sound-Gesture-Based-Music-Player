@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+     <div class="album-cover">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img
+              src="https://4kwallpapers.com/images/walls/thumbs_3t/11476.png" />
+            <div class="overlay">
+              <a
+                href="https://www.youtube.com/watch?v=aatr_2MstrI&ab_channel=CleanBandit"
+                target="_blank"
+                ><ion-icon name="logo-youtube"></ion-icon
+              ></a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://4kwallpapers.com/images/walls/thumbs_3t/14250.jpeg" />
+            <div class="overlay">
+              <a
+                href="https://www.youtube.com/watch?v=qEnfeG8uBRY&ab_channel=AliciaKeys-Topic"
+                target="_blank"
+                ><ion-icon name="logo-youtube"></ion-icon
+              ></a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/abaa23bd-8c93-4219-a3ef-0d0cb6f12566" />
+            <div class="overlay">
+              <a
+                href="https://www.youtube.com/watch?v=h5oHhGlWKf0&ab_channel=MuzikPlay"
+                target="_blank"
+                ><ion-icon name="logo-youtube"></ion-icon
+              ></a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://4kwallpapers.com/images/walls/thumbs_3t/15524.png" />
+            <div class="overlay">
+              <a
+                href="https://www.youtube.com/watch?v=a5uQMwRMHcs&ab_channel=DaftPunkVEVO"
+                target="_blank"
+                ><ion-icon name="logo-youtube"></ion-icon
+              ></a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/18bc2436-740b-44c4-9dd8-fd7be51a07ad" />
+            <div class="overlay">
+              <a
+                href="https://www.youtube.com/watch?v=H5v3kku4y6Q&ab_channel=HarryStylesVEVO"
+                target="_blank"
+                ><ion-icon name="logo-youtube"></ion-icon
+              ></a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/4c5c1727-8b32-48c1-91de-b0496ccf10f6" />
+            <div class="overlay">
+              <a
+                href="https://www.youtube.com/watch?v=9HDEHj2yzew&ab_channel=DuaLipa"
+                target="_blank"
+                ><ion-icon name="logo-youtube"></ion-icon
+              ></a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/23e440e5-a0fa-4a85-8175-bcc485a20ee6" />
+            <div class="overlay">
+              <a
+                href="https://www.youtube.com/watch?v=tCXGJQYZ9JA&ab_channel=TaylorSwiftVEVO"
+                target="_blank"
+                ><ion-icon name="logo-youtube"></ion-icon
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="music-player">
+      <h1>Title</h1>
+      <p>Song Name</p>
+
+      <audio id="song">
+        <source src="song-list/Luke-Bergs-Gold.mp3" type="audio/mpeg" />
+      </audio>
+
+      <input type="range" value="0" id="progress" />
+
+      <div class="controls">
+        <button class="backward">
+          <i class="fa-solid fa-backward"></i>
+        </button>
+        <button class="play-pause-btn">
+          <i class="fa-solid fa-play" id="controlIcon"></i>
+        </button>
+        <button class="forward">
+          <i class="fa-solid fa-forward"></i>
+        </button>
+      </div>
+    </div>
+</body>
+<script>
+const progress = document.getElementById("progress");
+const song = document.getElementById("song");
+const controlIcon = document.getElementById("controlIcon");
+const playPauseButton = document.querySelector(".play-pause-btn");
+const forwardButton = document.querySelector(".controls button.forward");
+const backwardButton = document.querySelector(".controls button.backward");
+const songName = document.querySelector(".music-player h1");
+const artistName = document.querySelector(".music-player p");
+
+const songs = [
+  {
+    title: "Symphony",
+    name: "Clean Bendit",
+    source:
+      "https://github.com/ecemgo/mini-samples-great-tricks/raw/main/song-list/Clean-Bandit-Symphony.mp3",
+  },
+  {
+    title: "Pawn It All",
+    name: "Alicia Keys",
+    source:
+      "https://github.com/ecemgo/mini-samples-great-tricks/raw/main/song-list/Pawn-It-All.mp3",
+  },
+  {
+    title: "Seni Dert Etmeler",
+    name: "Madrigal",
+    source:
+      "https://github.com/ecemgo/mini-samples-great-tricks/raw/main/song-list/Madrigal-Seni-Dert-Etmeler.mp3",
+  },
+  {
+    title: "Instant Crush",
+    name: "Daft Punk ft. Julian Casablancas",
+    source:
+      "https://github.com/ecemgo/mini-samples-great-tricks/raw/main/song-list/Daft-Punk-Instant-Crush.mp3",
+  },
+  {
+    title: "As It Was",
+    name: "Harry Styles",
+    source:
+      "https://github.com/ecemgo/mini-samples-great-tricks/raw/main/song-list/Harry-Styles-As-It-Was.mp3",
+  },
+
+  {
+    title: "Physical",
+    name: "Dua Lipa",
+    source:
+      "https://github.com/ecemgo/mini-samples-great-tricks/raw/main/song-list/Dua-Lipa-Physical.mp3",
+  },
+  {
+    title: "Delicate",
+    name: "Taylor Swift",
+    source:
+      "https://github.com/ecemgo/mini-samples-great-tricks/raw/main/song-list/Taylor-Swift-Delicate.mp3",
+  },
+];
+
+let currentSongIndex = 3;
+
+function updateSongInfo() {
+  songName.textContent = songs[currentSongIndex].title;
+  artistName.textContent = songs[currentSongIndex].name;
+  song.src = songs[currentSongIndex].source;
+
+  song.addEventListener("loadeddata", function () {});
+}
+
+song.addEventListener("timeupdate", function () {
+  if (!song.paused) {
+    progress.value = song.currentTime;
+  }
+});
+
+song.addEventListener("loadedmetadata", function () {
+  progress.max = song.duration;
+  progress.value = song.currentTime;
+});
+
+function pauseSong() {
+  song.pause();
+  controlIcon.classList.remove("fa-pause");
+  controlIcon.classList.add("fa-play");
+}
+
+function playSong() {
+  song.play();
+  controlIcon.classList.add("fa-pause");
+  controlIcon.classList.remove("fa-play");
+}
+
+function playPause() {
+  if (song.paused) {
+    playSong();
+  } else {
+    pauseSong();
+  }
+}
+
+playPauseButton.addEventListener("click", playPause);
+
+progress.addEventListener("input", function () {
+  song.currentTime = progress.value;
+});
+
+progress.addEventListener("change", function () {
+  playSong();
+});
+
+forwardButton.addEventListener("click", function () {
+  currentSongIndex = (currentSongIndex + 1) % songs.length;
+  updateSongInfo();
+  playPause();
+});
+
+backwardButton.addEventListener("click", function () {
+  currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+  updateSongInfo();
+  playPause();
+});
+
+updateSongInfo();
+
+var swiper = new Swiper(".swiper", {
+  
+  centeredSlides: true,
+  initialSlide: 3,
+  slidesPerView: "auto",
+  allowTouchMove: false,
+  spaceBetween: 40,
+  
+  navigation: {
+    nextEl: ".forward",
+    prevEl: ".backward",
+  },
+});
+document.addEventListener('keydown', function(event) {
+  if (event.key === 's') {
+    
+    currentSongIndex = (currentSongIndex + 1) % songs.length;
+    updateSongInfo();
+    playPause();
+
+    
+    const lastIndex = swiper.slides.length - 1;
+    const currentIndex = swiper.activeIndex;
+    if (currentIndex === lastIndex) {
+      swiper.slideTo(0); // Start from the beginning
+    } else {
+      swiper.slideNext();
+    }
+  } else if (event.key === 'c') {
+    // Toggle play/pause
+    if (song.paused) {
+      playSong();
+    } else {
+      pauseSong();
+    }
+  }
+});
+
+
+</script>
+</html>
